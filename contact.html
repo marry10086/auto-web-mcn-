@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 - 云域-Cloud Area</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#FAFAFA] font-sans text-slate-900 overflow-x-hidden selection:bg-emerald-500 selection:text-white">
+
+    <!-- 🚀 全局高级动态背景系统 (全亮色，翡翠绿生机光晕) 🚀 -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <!-- 流体光晕 -->
+        <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-emerald-200/30 filter blur-[120px] animate-blob"></div>
+        <div class="absolute top-[20%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-teal-200/20 filter blur-[120px] animate-blob animation-delay-2000"></div>
+        <div class="absolute bottom-[-20%] left-[20%] w-[60vw] h-[60vw] rounded-full bg-emerald-100/40 filter blur-[150px] animate-blob animation-delay-4000"></div>
+        
+        <!-- 国际化极简数据网格 -->
+        <div class="absolute inset-0 bg-[linear-gradient(rgba(16,185,129,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_100%_100%_at_50%_0%,#000_10%,transparent_80%)]"></div>
+        
+        <!-- 高定磨砂颗粒感 -->
+        <div class="absolute inset-0 opacity-[0.15] mix-blend-overlay" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')"></div>
+    </div>
+
+    <!-- 导航栏 -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 bg-transparent py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center relative z-10">
+            <div class="flex items-center gap-2 cursor-pointer group">
+                <div class="w-9 h-9 bg-emerald-500 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-500/20 group-hover:shadow-emerald-500/40 transition-all duration-300 transform group-hover:scale-105">
+                    <i data-lucide="globe" class="text-white w-5 h-5"></i>
+                </div>
+                <span class="text-2xl font-black tracking-tight text-slate-900">
+                    云域-Cloud Area<span class="text-emerald-500">.</span>
+                </span>
+            </div>
+
+            <!-- 桌面端菜单 -->
+            <div class="hidden md:flex items-center space-x-8 font-medium">
+                <a href="index.html#platforms" class="text-slate-600 hover:text-emerald-600 transition-colors">代运营平台</a>
+                <a href="index.html#services" class="text-slate-600 hover:text-emerald-600 transition-colors">核心业务</a>
+                <a href="index.html#trust" class="text-slate-600 hover:text-emerald-600 transition-colors">实战数据</a>
+                <a href="contact.html" class="bg-slate-900 hover:bg-emerald-600 text-white px-7 py-2.5 rounded-full transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-slate-900/10 font-bold">
+                    联系我们
+                </a>
+            </div>
+
+            <!-- 移动端菜单按钮 -->
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-slate-900 hover:text-emerald-600 p-2 relative z-10">
+                    <i data-lucide="menu" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- 移动端菜单面板 -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl shadow-2xl py-6 px-6 flex-col space-y-6 border-t border-slate-100/50">
+            <a href="index.html#platforms" class="text-slate-800 font-medium hover:text-emerald-600">代运营平台</a>
+            <a href="index.html#services" class="text-slate-800 font-medium hover:text-emerald-600">核心业务</a>
+            <a href="index.html#trust" class="text-slate-800 font-medium hover:text-emerald-600">实战数据</a>
+            <a href="contact.html" class="bg-emerald-600 text-white font-bold px-6 py-3 rounded-full w-full shadow-lg shadow-emerald-500/20">联系我们</a>
+        </div>
+    </nav>
+
+    <!-- 联系表单 Section -->
+    <div class="relative z-10 pt-32 md:pt-48 pb-20">
+        
+        <!-- 联系 Hero Section -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-20 relative">
+            <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/80 backdrop-blur-md text-emerald-700 font-medium text-sm mb-10 border border-emerald-100/50 shadow-[0_4px_20px_-5px_rgba(16,185,129,0.15)]">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.6)]"></span>
+                量身定制您的全球化增长方案
+            </div>
+            <h1 class="text-5xl md:text-7xl font-black tracking-tight mb-8 leading-[1.1] text-slate-900">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500">开启合作</span> <br class="hidden md:block" />
+                获取全域出海方案
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-12 leading-relaxed">
+                请填写您的业务需求，我们的出海专家团队将在 24 小时内与您取得联系，为您提供深度市场分析与增长建议。
+            </p>
+        </section>
+
+        <!-- 表单区域 -->
+        <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 -mb-48">
+            <div class="bg-white/90 backdrop-blur-2xl rounded-[3rem] p-3 md:p-8 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] border border-white overflow-hidden mx-auto">
+                <!-- 谷歌表单嵌入容器 -->
+                <div class="w-full flex justify-center rounded-[2rem] overflow-hidden bg-white">
+                    <iframe 
+                        src="https://docs.google.com/forms/d/e/1FAIpQLSeOsYyZLP7w1wIIySAVrALdUMQ4JBO_LjKgUDqnyWOCYhCiSA/viewform?embedded=true" 
+                        width="100%" 
+                        height="850" 
+                        frameborder="0" 
+                        marginheight="0" 
+                        marginwidth="0"
+                        scrolling="no"
+                        class="w-full"
+                    >正在加载…</iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- 页脚 -->
+        <footer class="bg-slate-900 text-slate-400 pt-72 pb-16 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-2 mb-6">
+                        <i data-lucide="globe" class="text-emerald-500 w-7 h-7"></i>
+                        <span class="text-2xl font-black text-white tracking-tight">云域-Cloud Area.</span>
+                    </div>
+                    <p class="text-base max-w-sm leading-relaxed text-slate-400 font-light">
+                        TikTok 官方认证生态伙伴，资深亚马逊代运营专家。深度链接 5000+ 优质红人，拥有本土直播团队，以顶级视觉与增长黑客思维，助力中国品牌制胜全球。
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-lg">核心出海业务</h4>
+                    <ul class="space-y-3 text-base font-light">
+                        <li><a href="index.html#services" class="hover:text-emerald-400 transition-colors">亚马逊精细化代运营</a></li>
+                        <li><a href="index.html#services" class="hover:text-emerald-400 transition-colors">TikTok Shop 闭环与直播</a></li>
+                        <li><a href="index.html#services" class="hover:text-emerald-400 transition-colors">海外 KOL 种草与分销</a></li>
+                        <li><a href="index.html#services" class="hover:text-emerald-400 transition-colors">独立站与品牌视觉包装</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-lg">业务联系信息</h4>
+                    <ul class="space-y-3 text-base font-light">
+                        <li><span class="text-slate-500">微信:</span> Zara2875</li>
+                        <li><span class="text-slate-500">邮箱:</span> 527982127@qq.com</li>
+                        <li><span class="text-slate-500">地址:</span> 杭州市余杭区良渚数栖湾OPC创意产业园</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 pt-8 border-t border-slate-800/50 text-sm text-center md:text-left flex flex-col md:flex-row justify-between items-center font-light">
+                <p>© 2025 云域-Cloud Area Global. 保留所有权利。</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+
+            const navbar = document.getElementById('navbar');
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            // 1. 监听滚动以改变导航栏样式
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    navbar.classList.add('nav-scrolled');
+                    navbar.classList.remove('py-6', 'bg-transparent');
+                } else {
+                    navbar.classList.remove('nav-scrolled');
+                    navbar.classList.add('py-6', 'bg-transparent');
+                }
+            });
+
+            // 2. 移动端菜单切换逻辑
+            let isMobileMenuOpen = false;
+
+            menuBtn.addEventListener('click', () => {
+                isMobileMenuOpen = !isMobileMenuOpen;
+                
+                if (isMobileMenuOpen) {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenu.classList.add('flex');
+                    // 切换图标为 X
+                    menuBtn.innerHTML = '<i data-lucide="x"></i>';
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                    // 切换图标为 menu
+                    menuBtn.innerHTML = '<i data-lucide="menu"></i>';
+                }
+                
+                // 重新运行 lucide 以应用图标更改
+                lucide.createIcons();
+            });
+
+            // 点击菜单项后自动关闭菜单 (移动端)
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    isMobileMenuOpen = false;
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                    menuBtn.innerHTML = '<i data-lucide="menu"></i>';
+                    lucide.createIcons();
+                });
+            });
+
+            // 表单提交逻辑已由谷歌表单 iframe 处理
+        });
+    </script>
+</body>
+</html>
