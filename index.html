@@ -43,9 +43,9 @@
                 <a href="#platforms" class="text-slate-600 hover:text-emerald-600 transition-colors">代运营平台</a>
                 <a href="#services" class="text-slate-600 hover:text-emerald-600 transition-colors">核心业务</a>
                 <a href="#trust" class="text-slate-600 hover:text-emerald-600 transition-colors">实战数据</a>
-                <a href="#contact-form" class="bg-slate-900 hover:bg-emerald-600 text-white px-7 py-2.5 rounded-full transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-slate-900/10 font-bold">
+                <button onclick="openModal()" class="bg-slate-900 hover:bg-emerald-600 text-white px-7 py-2.5 rounded-full transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-slate-900/10 font-bold">
                     联系我们
-                </a>
+                </button>
             </div>
 
             <!-- 移动端菜单按钮 -->
@@ -61,7 +61,7 @@
             <a href="#platforms" class="text-slate-800 font-medium hover:text-emerald-600">代运营平台</a>
             <a href="#services" class="text-slate-800 font-medium hover:text-emerald-600">核心业务</a>
             <a href="#trust" class="text-slate-800 font-medium hover:text-emerald-600">实战数据</a>
-            <a href="#contact-form" class="bg-emerald-600 text-white font-bold px-6 py-3 rounded-full w-full shadow-lg shadow-emerald-500/20 text-center">联系我们</a>
+            <button onclick="openModal()" class="bg-emerald-600 text-white font-bold px-6 py-3 rounded-full w-full shadow-lg shadow-emerald-500/20 text-center">联系我们</button>
         </div>
     </nav>
 
@@ -82,9 +82,9 @@
                 我们是懂流量、更懂卖货的出海服务机构。深耕跨境电商8年，从亚马逊代运营、TikTok电商到红人带货，我们将极致的视觉审美与强悍的销售逻辑完美结合，为您实现真正的品效合一。
             </p>
             <div class="flex flex-col sm:flex-row justify-center items-center gap-5">
-                <a href="#contact-form" class="w-full sm:w-auto px-8 py-4 rounded-full bg-emerald-600 text-white font-bold text-lg hover:bg-emerald-700 transition-all duration-300 shadow-[0_8px_25px_-5px_rgba(16,185,129,0.4)] hover:shadow-[0_12px_30px_-5px_rgba(16,185,129,0.5)] flex items-center justify-center gap-2 transform hover:-translate-y-1">
+                <button onclick="openModal()" class="w-full sm:w-auto px-8 py-4 rounded-full bg-emerald-600 text-white font-bold text-lg hover:bg-emerald-700 transition-all duration-300 shadow-[0_8px_25px_-5px_rgba(16,185,129,0.4)] hover:shadow-[0_12px_30px_-5px_rgba(16,185,129,0.5)] flex items-center justify-center gap-2 transform hover:-translate-y-1">
                     获取全域出海方案 <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                </a>
+                </button>
             </div>
         </section>
 
@@ -349,34 +349,55 @@
                     <p class="text-xl md:text-2xl text-emerald-50/90 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
                         结合亚马逊的稳健盈利与 TikTok 的爆发流量。<br class="hidden md:block" />联系我们，获取专属于您的出海全栈卖货方案。
                     </p>
-                    <a href="#contact-form" class="bg-white text-emerald-600 font-black px-12 py-5 rounded-full text-xl hover:bg-slate-50 transition-all shadow-[0_20px_40px_rgba(0,0,0,0.2)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.25)] transform hover:-translate-y-2 inline-flex items-center gap-3">
+                    <button onclick="openModal()" class="bg-white text-emerald-600 font-black px-12 py-5 rounded-full text-xl hover:bg-slate-50 transition-all shadow-[0_20px_40px_rgba(0,0,0,0.2)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.25)] transform hover:-translate-y-2 inline-flex items-center gap-3">
                         获取合作报价 <i data-lucide="arrow-right" class="w-6 h-6"></i>
-                    </a>
+                    </button>
                 </div>
             </div>
         </section>
 
-        <!-- 表单区域 -->
-        <section id="contact-form" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 -mb-48 scroll-mt-32">
-            <div class="bg-white/90 backdrop-blur-2xl rounded-[3rem] p-3 md:p-8 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] border border-white overflow-hidden mx-auto">
-                <!-- 谷歌表单嵌入容器 -->
-                <div class="w-full flex justify-center rounded-[2rem] overflow-hidden bg-white">
-                    <iframe 
-                        src="https://docs.google.com/forms/d/e/1FAIpQLSeOsYyZLP7w1wIIySAVrALdUMQ4JBO_LjKgUDqnyWOCYhCiSA/viewform?embedded=true" 
-                        width="100%" 
-                        height="850" 
-                        frameborder="0" 
-                        marginheight="0" 
-                        marginwidth="0"
-                        scrolling="no"
-                        class="w-full"
-                    >正在加载…</iframe>
+        <!-- 🚀 弹出表单 Modal 🚀 -->
+        <div id="contact-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+            <!-- 背景遮罩 -->
+            <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-md transition-opacity" onclick="closeModal()"></div>
+            
+            <!-- 弹窗主体 -->
+            <div class="relative bg-white/95 backdrop-blur-2xl rounded-[2.5rem] w-full max-w-4xl max-h-[90vh] overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,0,0,0.3)] border border-white flex flex-col transform transition-all scale-95 opacity-0 duration-300" id="modal-content">
+                <!-- 顶部栏 -->
+                <div class="flex justify-between items-center p-6 border-b border-slate-100 bg-white/50 backdrop-blur-sm sticky top-0 z-10">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-emerald-500 rounded-xl flex items-center justify-center">
+                            <i data-lucide="file-text" class="text-white w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-black text-slate-900">获取定制出海方案</h3>
+                            <p class="text-xs text-slate-500 font-medium">请填写您的业务需求，专家团队将尽快联系您</p>
+                        </div>
+                    </div>
+                    <button onclick="closeModal()" class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-slate-100 text-slate-400 hover:text-slate-900 transition-all">
+                        <i data-lucide="x" class="w-6 h-6"></i>
+                    </button>
+                </div>
+                
+                <!-- 表单容器 (滚动区域) -->
+                <div class="flex-1 overflow-y-auto p-2 bg-slate-50/50">
+                    <div class="w-full flex justify-center rounded-[1.5rem] overflow-hidden bg-white shadow-inner">
+                        <iframe 
+                            src="https://docs.google.com/forms/d/e/1FAIpQLSeOsYyZLP7w1wIIySAVrALdUMQ4JBO_LjKgUDqnyWOCYhCiSA/viewform?embedded=true" 
+                            width="100%" 
+                            height="800" 
+                            frameborder="0" 
+                            marginheight="0" 
+                            marginwidth="0"
+                            class="w-full"
+                        >正在加载…</iframe>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!-- 页脚 -->
-        <footer class="bg-slate-900 text-slate-400 pt-72 pb-16 relative z-10">
+        <footer class="bg-slate-900 text-slate-400 pt-32 pb-16 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-8">
             <div class="col-span-1 md:col-span-2">
                 <div class="flex items-center gap-2 mb-6">
