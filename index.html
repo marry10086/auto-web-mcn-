@@ -9,6 +9,39 @@
     <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <script>
+    // 备用弹窗函数 - 确保即使 script.js 未加载也能工作
+    window.openModal = window.openModal || function(e) {
+        if (e) e.preventDefault();
+        console.log('[Backup] Opening modal...');
+        var modal = document.getElementById('contact-modal');
+        var modalContent = document.getElementById('modal-content');
+        if (modal && modalContent) {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            modal.offsetHeight;
+            modalContent.classList.remove('scale-95', 'opacity-0');
+            modalContent.classList.add('scale-100', 'opacity-100');
+            document.body.style.overflow = 'hidden';
+        }
+    };
+    window.closeModal = window.closeModal || function(e) {
+        if (e) e.preventDefault();
+        console.log('[Backup] Closing modal...');
+        var modal = document.getElementById('contact-modal');
+        var modalContent = document.getElementById('modal-content');
+        if (modal && modalContent) {
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+            setTimeout(function() {
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+    };
+    </script>
 </head>
 <body class="bg-[#FAFAFA] font-sans text-slate-900 overflow-x-hidden selection:bg-emerald-500 selection:text-white">
 
@@ -43,7 +76,7 @@
                 <a href="#platforms" class="text-slate-600 hover:text-emerald-600 transition-colors">代运营平台</a>
                 <a href="#services" class="text-slate-600 hover:text-emerald-600 transition-colors">核心业务</a>
                 <a href="#trust" class="text-slate-600 hover:text-emerald-600 transition-colors">实战数据</a>
-                <button onclick="openModal()" class="bg-slate-900 hover:bg-emerald-600 text-white px-7 py-2.5 rounded-full transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-slate-900/10 font-bold">
+                <button onclick="openModal(event)" class="modal-trigger bg-slate-900 hover:bg-emerald-600 text-white px-7 py-2.5 rounded-full transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-slate-900/10 font-bold">
                     联系我们
                 </button>
             </div>
@@ -61,7 +94,7 @@
             <a href="#platforms" class="text-slate-800 font-medium hover:text-emerald-600">代运营平台</a>
             <a href="#services" class="text-slate-800 font-medium hover:text-emerald-600">核心业务</a>
             <a href="#trust" class="text-slate-800 font-medium hover:text-emerald-600">实战数据</a>
-            <button onclick="openModal()" class="bg-emerald-600 text-white font-bold px-6 py-3 rounded-full w-full shadow-lg shadow-emerald-500/20 text-center">联系我们</button>
+            <button onclick="openModal(event)" class="modal-trigger bg-emerald-600 text-white font-bold px-6 py-3 rounded-full w-full shadow-lg shadow-emerald-500/20 text-center">联系我们</button>
         </div>
     </nav>
 
@@ -82,7 +115,7 @@
                 我们是懂流量、更懂卖货的出海服务机构。深耕跨境电商8年，从亚马逊代运营、TikTok电商到红人带货，我们将极致的视觉审美与强悍的销售逻辑完美结合，为您实现真正的品效合一。
             </p>
             <div class="flex flex-col sm:flex-row justify-center items-center gap-5">
-                <button onclick="openModal()" class="w-full sm:w-auto px-8 py-4 rounded-full bg-emerald-600 text-white font-bold text-lg hover:bg-emerald-700 transition-all duration-300 shadow-[0_8px_25px_-5px_rgba(16,185,129,0.4)] hover:shadow-[0_12px_30px_-5px_rgba(16,185,129,0.5)] flex items-center justify-center gap-2 transform hover:-translate-y-1">
+                <button onclick="openModal(event)" class="modal-trigger w-full sm:w-auto px-8 py-4 rounded-full bg-emerald-600 text-white font-bold text-lg hover:bg-emerald-700 transition-all duration-300 shadow-[0_8px_25px_-5px_rgba(16,185,129,0.4)] hover:shadow-[0_12px_30px_-5px_rgba(16,185,129,0.5)] flex items-center justify-center gap-2 transform hover:-translate-y-1">
                     获取全域出海方案 <i data-lucide="arrow-right" class="w-5 h-5"></i>
                 </button>
             </div>
@@ -349,7 +382,7 @@
                     <p class="text-xl md:text-2xl text-emerald-50/90 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
                         结合亚马逊的稳健盈利与 TikTok 的爆发流量。<br class="hidden md:block" />联系我们，获取专属于您的出海全栈卖货方案。
                     </p>
-                    <button onclick="openModal()" class="bg-white text-emerald-600 font-black px-12 py-5 rounded-full text-xl hover:bg-slate-50 transition-all shadow-[0_20px_40px_rgba(0,0,0,0.2)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.25)] transform hover:-translate-y-2 inline-flex items-center gap-3">
+                    <button onclick="openModal(event)" class="modal-trigger bg-white text-emerald-600 font-black px-12 py-5 rounded-full text-xl hover:bg-slate-50 transition-all shadow-[0_20px_40px_rgba(0,0,0,0.2)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.25)] transform hover:-translate-y-2 inline-flex items-center gap-3">
                         获取合作报价 <i data-lucide="arrow-right" class="w-6 h-6"></i>
                     </button>
                 </div>
@@ -411,10 +444,10 @@
             <div>
                 <h4 class="text-white font-bold mb-6 text-lg">核心出海业务</h4>
                 <ul class="space-y-3 text-base font-light">
-                    <li><a href="#" class="hover:text-emerald-400 transition-colors">亚马逊精细化代运营</a></li>
-                    <li><a href="#" class="hover:text-emerald-400 transition-colors">TikTok Shop 闭环与直播</a></li>
-                    <li><a href="#" class="hover:text-emerald-400 transition-colors">海外 KOL 种草与分销</a></li>
-                    <li><a href="#" class="hover:text-emerald-400 transition-colors">独立站与品牌视觉包装</a></li>
+                    <li><a href="javascript:void(0)" onclick="openModal(event)" class="modal-trigger hover:text-emerald-400 transition-colors">亚马逊精细化代运营</a></li>
+                    <li><a href="javascript:void(0)" onclick="openModal(event)" class="modal-trigger hover:text-emerald-400 transition-colors">TikTok Shop 闭环与直播</a></li>
+                    <li><a href="javascript:void(0)" onclick="openModal(event)" class="modal-trigger hover:text-emerald-400 transition-colors">海外 KOL 种草与分销</a></li>
+                    <li><a href="javascript:void(0)" onclick="openModal(event)" class="modal-trigger hover:text-emerald-400 transition-colors">独立站与品牌视觉包装</a></li>
                 </ul>
             </div>
             <div>
@@ -434,7 +467,5 @@
             </div>
         </div>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
