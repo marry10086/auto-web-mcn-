@@ -4,44 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>云域-Cloud Area - 跨境出海服务专家</title>
+    <link rel="icon" href="logo.png">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons CDN (稳定版本) -->
     <script src="https://unpkg.com/lucide@0.201.0/dist/umd/lucide.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-    <script>
-    // 备用弹窗函数 - 确保即使 script.js 未加载也能工作
-    window.openModal = window.openModal || function(e) {
-        if (e) e.preventDefault();
-        console.log('[Backup] Opening modal...');
-        var modal = document.getElementById('contact-modal');
-        var modalContent = document.getElementById('modal-content');
-        if (modal && modalContent) {
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            modal.offsetHeight;
-            modalContent.classList.remove('scale-95', 'opacity-0');
-            modalContent.classList.add('scale-100', 'opacity-100');
-            document.body.style.overflow = 'hidden';
-        }
-    };
-    window.closeModal = window.closeModal || function(e) {
-        if (e) e.preventDefault();
-        console.log('[Backup] Closing modal...');
-        var modal = document.getElementById('contact-modal');
-        var modalContent = document.getElementById('modal-content');
-        if (modal && modalContent) {
-            modalContent.classList.remove('scale-100', 'opacity-100');
-            modalContent.classList.add('scale-95', 'opacity-0');
-            setTimeout(function() {
-                modal.classList.remove('flex');
-                modal.classList.add('hidden');
-                document.body.style.overflow = '';
-            }, 300);
-        }
-    };
-    </script>
 </head>
 <body class="bg-[#FAFAFA] font-sans text-slate-900 overflow-x-hidden selection:bg-emerald-500 selection:text-white">
 
@@ -62,23 +31,21 @@
     <!-- 导航栏 -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 bg-transparent py-6">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center relative z-10">
-            <div class="flex items-center gap-2 cursor-pointer group">
-                <div class="w-9 h-9 bg-emerald-500 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-500/20 group-hover:shadow-emerald-500/40 transition-all duration-300 transform group-hover:scale-105">
-                    <i data-lucide="globe" class="text-white w-5 h-5"></i>
-                </div>
+            <a href="/" class="flex items-center gap-2 cursor-pointer group">
+                <img src="logo.png" alt="Company Logo" class="h-12 w-auto">
                 <span class="text-2xl font-black tracking-tight text-slate-900">
                     云域-Cloud Area<span class="text-emerald-500">.</span>
                 </span>
-            </div>
+            </a>
 
             <!-- 桌面端菜单 -->
             <div class="hidden md:flex items-center space-x-8 font-medium">
                 <a href="#platforms" class="text-slate-600 hover:text-emerald-600 transition-colors">代运营平台</a>
                 <a href="#services" class="text-slate-600 hover:text-emerald-600 transition-colors">核心业务</a>
                 <a href="#trust" class="text-slate-600 hover:text-emerald-600 transition-colors">实战数据</a>
-                <button onclick="openModal(event)" class="modal-trigger bg-slate-900 hover:bg-emerald-600 text-white px-7 py-2.5 rounded-full transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-slate-900/10 font-bold">
+                <a href="#contact-section" class="bg-slate-900 hover:bg-emerald-600 text-white px-7 py-2.5 rounded-full transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-slate-900/10 font-bold">
                     联系我们
-                </button>
+                </a>
             </div>
 
             <!-- 移动端菜单按钮 -->
@@ -91,10 +58,10 @@
 
         <!-- 移动端菜单面板 -->
         <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl shadow-2xl py-6 px-6 flex-col space-y-6 border-t border-slate-100/50">
-            <a href="#platforms" class="text-slate-800 font-medium hover:text-emerald-600">代运营平台</a>
+            <a href="#contact-section" class="text-slate-800 font-medium hover:text-emerald-600">代运营平台</a>
             <a href="#services" class="text-slate-800 font-medium hover:text-emerald-600">核心业务</a>
             <a href="#trust" class="text-slate-800 font-medium hover:text-emerald-600">实战数据</a>
-            <button onclick="openModal(event)" class="modal-trigger bg-emerald-600 text-white font-bold px-6 py-3 rounded-full w-full shadow-lg shadow-emerald-500/20 text-center">联系我们</button>
+            <a href="#contact-section" class="bg-emerald-600 text-white font-bold px-6 py-3 rounded-full w-full shadow-lg shadow-emerald-500/20 text-center">联系我们</a>
         </div>
     </nav>
 
@@ -107,19 +74,19 @@
                 <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.6)]"></span>
                 TikTok 官方认证生态伙伴 · 亚马逊精细化操盘手
             </div>
-            <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] font-black tracking-tight mb-8 leading-[1.1] text-slate-900">
+            <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] font-black tracking-tight mb-12 leading-[1.1] text-slate-900">
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500">顶级运营驱动</span> <br class="hidden md:block" />
                 中国产品走向全世界
             </h1>
-            <p class="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-12 leading-relaxed">
+            <p class="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-16 leading-relaxed">
                 我们是懂流量、更懂卖货的出海服务机构。深耕跨境电商8年，从亚马逊代运营、TikTok电商到红人带货，我们将极致的视觉审美与强悍的销售逻辑完美结合，为您实现真正的品效合一。
             </p>
             <div class="flex flex-col sm:flex-row justify-center items-center gap-5">
-                <button onclick="openModal(event)" class="modal-trigger w-full sm:w-auto px-8 py-4 rounded-full bg-emerald-600 text-white font-bold text-lg hover:bg-emerald-700 transition-all duration-300 shadow-[0_8px_25px_-5px_rgba(16,185,129,0.4)] hover:shadow-[0_12px_30px_-5px_rgba(16,185,129,0.5)] flex items-center justify-center gap-2 transform hover:-translate-y-1">
-                    获取全域出海方案 <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                </button>
+
             </div>
         </section>
+
+
 
         <!-- 合作品牌墙 -->
         <section class="w-full overflow-hidden mb-24 md:mb-32 pt-10 border-t border-slate-200/40 relative">
@@ -380,54 +347,13 @@
                 <div class="max-w-4xl mx-auto relative z-10">
                     <h2 class="text-4xl md:text-5xl lg:text-7xl font-black mb-8 leading-tight drop-shadow-md">准备好在海外市场<br/>弯道超车了吗？</h2>
                     <p class="text-xl md:text-2xl text-emerald-50/90 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
-                        结合亚马逊的稳健盈利与 TikTok 的爆发流量。<br class="hidden md:block" />联系我们，获取专属于您的出海全栈卖货方案。
-                    </p>
-                    <button onclick="openModal(event)" class="modal-trigger bg-white text-emerald-600 font-black px-12 py-5 rounded-full text-xl hover:bg-slate-50 transition-all shadow-[0_20px_40px_rgba(0,0,0,0.2)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.25)] transform hover:-translate-y-2 inline-flex items-center gap-3">
-                        获取合作报价 <i data-lucide="arrow-right" class="w-6 h-6"></i>
-                    </button>
+                        结合亚马逊的稳健盈利与 TikTok 的爆发流量。<br class="hidden md:block" />联系我们，获取专属于您的出海全栈卖货方案。立即咨询                    </p>
+                    <a href="#contact-section" class="bg-white text-emerald-600 font-black px-12 py-5 rounded-full text-xl hover:bg-slate-50 transition-all shadow-[0_20px_40px_rgba(0,0,0,0.2)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.25)] transform hover:-translate-y-2 flex justify-center items-center gap-3">
+                        <span>获取出海方案</span> <i data-lucide="arrow-right" class="w-6 h-6"></i>
+                    </a>
                 </div>
             </div>
         </section>
-
-        <!-- 🚀 弹出表单 Modal 🚀 -->
-        <div id="contact-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
-            <!-- 背景遮罩 -->
-            <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-md transition-opacity" onclick="closeModal()"></div>
-            
-            <!-- 弹窗主体 -->
-            <div class="relative bg-white/95 backdrop-blur-2xl rounded-[2.5rem] w-full max-w-4xl max-h-[90vh] overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,0,0,0.3)] border border-white flex flex-col transform transition-all scale-95 opacity-0 duration-300" id="modal-content">
-                <!-- 顶部栏 -->
-                <div class="flex justify-between items-center p-6 border-b border-slate-100 bg-white/50 backdrop-blur-sm sticky top-0 z-10">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-emerald-500 rounded-xl flex items-center justify-center">
-                            <i data-lucide="file-text" class="text-white w-5 h-5"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-black text-slate-900">获取定制出海方案</h3>
-                            <p class="text-xs text-slate-500 font-medium">请填写您的业务需求，专家团队将尽快联系您</p>
-                        </div>
-                    </div>
-                    <button onclick="closeModal()" class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-slate-100 text-slate-400 hover:text-slate-900 transition-all">
-                        <i data-lucide="x" class="w-6 h-6"></i>
-                    </button>
-                </div>
-                
-                <!-- 表单容器 (滚动区域) -->
-                <div class="flex-1 overflow-y-auto p-2 bg-slate-50/50">
-                    <div class="w-full flex justify-center rounded-[1.5rem] overflow-hidden bg-white shadow-inner">
-                        <iframe 
-                            src="https://docs.google.com/forms/d/e/1FAIpQLSeOsYyZLP7w1wIIySAVrALdUMQ4JBO_LjKgUDqnyWOCYhCiSA/viewform?embedded=true" 
-                            width="100%" 
-                            height="800" 
-                            frameborder="0" 
-                            marginheight="0" 
-                            marginwidth="0"
-                            class="w-full"
-                        >正在加载…</iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- 页脚 -->
         <footer class="bg-slate-900 text-slate-400 pt-32 pb-16 relative z-10">
@@ -444,10 +370,10 @@
             <div>
                 <h4 class="text-white font-bold mb-6 text-lg">核心出海业务</h4>
                 <ul class="space-y-3 text-base font-light">
-                    <li><a href="javascript:void(0)" onclick="openModal(event)" class="modal-trigger hover:text-emerald-400 transition-colors">亚马逊精细化代运营</a></li>
-                    <li><a href="javascript:void(0)" onclick="openModal(event)" class="modal-trigger hover:text-emerald-400 transition-colors">TikTok Shop 闭环与直播</a></li>
-                    <li><a href="javascript:void(0)" onclick="openModal(event)" class="modal-trigger hover:text-emerald-400 transition-colors">海外 KOL 种草与分销</a></li>
-                    <li><a href="javascript:void(0)" onclick="openModal(event)" class="modal-trigger hover:text-emerald-400 transition-colors">独立站与品牌视觉包装</a></li>
+                    <li><span class="text-slate-400">亚马逊精细化代运营</span></li>
+                    <li><span class="text-slate-400">TikTok Shop 闭环与直播</span></li>
+                    <li><span class="text-slate-400">海外 KOL 种草与分销</span></li>
+                    <li><span class="text-slate-400">独立站与品牌视觉包装</span></li>
                 </ul>
             </div>
             <div>
@@ -467,5 +393,36 @@
             </div>
         </div>
     </footer>
+    <!-- Modal Overlay -->
+    <div id="contact-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
+        <div class="bg-white rounded-[2.5rem] p-8 md:p-10 shadow-2xl max-w-3xl w-full relative transform transition-all duration-300 scale-95 opacity-0" id="modal-content">
+            <button id="close-modal-btn" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 transition-colors">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <div class="text-center mb-8">
+                <h3 class="text-3xl font-black text-slate-900 mb-2">即刻开启全域出海</h3>
+                <p class="text-slate-500 font-medium">添加请备注品牌+类目</p>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                <!-- 商务合作 1 -->
+                <div class="flex flex-col items-center text-center">
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">商务合作1</h4>
+                    <div class="w-[280px] h-[280px] bg-slate-50 rounded-xl p-3 flex items-center justify-center border border-slate-100 overflow-hidden">
+                        <img src="qr-shangwu.png" alt="商务合作1" class="w-full h-full object-contain mx-auto">
+                    </div>
+                </div>
+
+                <!-- 商务合作 2 -->
+                <div class="flex flex-col items-center text-center">
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">商务合作2</h4>
+                    <div class="w-[280px] h-[280px] bg-slate-50 rounded-xl p-3 flex items-center justify-center border border-slate-100 overflow-hidden">
+                        <img src="qr-kefu.png" alt="商务合作2" class="w-full h-full object-contain mx-auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

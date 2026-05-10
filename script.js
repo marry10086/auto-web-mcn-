@@ -1,49 +1,3 @@
-// 弹窗 Modal 处理逻辑
-window.openModal = function(e) {
-    if (e) e.preventDefault();
-    console.log('Opening modal...');
-    const modal = document.getElementById('contact-modal');
-    const modalContent = document.getElementById('modal-content');
-    
-    if (!modal || !modalContent) {
-        console.error('Modal elements not found:', { modal, modalContent });
-        return;
-    }
-    
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-    
-    // 强制重绘
-    modal.offsetHeight; 
-    
-    // 添加动画类
-    setTimeout(() => {
-        modalContent.classList.remove('scale-95', 'opacity-0');
-        modalContent.classList.add('scale-100', 'opacity-100');
-    }, 10);
-    
-    document.body.style.overflow = 'hidden'; // 禁止背景滚动
-};
-
-window.closeModal = function(e) {
-    if (e) e.preventDefault();
-    console.log('Closing modal...');
-    const modal = document.getElementById('contact-modal');
-    const modalContent = document.getElementById('modal-content');
-    
-    if (!modal || !modalContent) return;
-
-    modalContent.classList.remove('scale-100', 'opacity-100');
-    modalContent.classList.add('scale-95', 'opacity-0');
-    
-    // 等待动画结束后隐藏
-    setTimeout(() => {
-        modal.classList.remove('flex');
-        modal.classList.add('hidden');
-        document.body.style.overflow = ''; // 恢复背景滚动
-    }, 300);
-};
-
 document.addEventListener('DOMContentLoaded', () => {
     // 1. 初始化 Lucide 图标
     try {
@@ -57,6 +11,42 @@ document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.getElementById('navbar');
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
+
+    // Modal elements
+    const contactModal = document.getElementById('contact-modal');
+    const modalContent = document.getElementById('modal-content');
+    const closeModalBtn = document.getElementById('close-modal-btn');
+
+    // Function to open the modal
+    const openModal = () => {
+        contactModal.classList.remove('hidden');
+        // Trigger reflow to ensure transition plays
+        void contactModal.offsetWidth;
+        modalContent.classList.remove('scale-95', 'opacity-0');
+        modalContent.classList.add('scale-100', 'opacity-100');
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons(); // Re-render icons inside the modal
+        }
+    };
+
+    // Function to close the modal
+    const closeModal = () => {
+        modalContent.classList.remove('scale-100', 'opacity-100');
+        modalContent.classList.add('scale-95', 'opacity-0');
+        setTimeout(() => {
+            contactModal.classList.add('hidden');
+        }, 300); // Match the transition duration
+    };
+
+    // Event listeners for modal
+    if (contactModal && closeModalBtn) {
+        closeModalBtn.addEventListener('click', closeModal);
+        contactModal.addEventListener('click', (e) => {
+            if (e.target === contactModal) { // Only close if clicking on the overlay, not the modal content
+                closeModal();
+            }
+        });
+    }
 
     // 2. 监听滚动以改变导航栏样式
     if (navbar) {
@@ -77,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (menuBtn && mobileMenu) {
         menuBtn.addEventListener('click', () => {
             isMobileMenuOpen = !isMobileMenuOpen;
-            
+
             if (isMobileMenuOpen) {
                 mobileMenu.classList.remove('hidden');
                 mobileMenu.classList.add('flex');
@@ -87,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 mobileMenu.classList.remove('flex');
                 menuBtn.innerHTML = '<i data-lucide="menu"></i>';
             }
-            
+
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
             }
@@ -108,21 +98,33 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. 为所有带有特定类名的按钮绑定事件 (双重保险)
-    const modalTriggers = document.querySelectorAll('.modal-trigger');
-    modalTriggers.forEach(trigger => {
-        trigger.addEventListener('click', (e) => {
-            window.openModal(e);
-        });
-    });
-
-    // 5. ESC 键关闭弹窗
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            const modal = document.getElementById('contact-modal');
-            if (modal && !modal.classList.contains('hidden')) {
-                window.closeModal(e);
+    // 4. 平滑滚动增强 (可选，但推荐) - Modified to handle modal triggers
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            // If the link is specifically for the contact section (now a modal trigger)
+            if (href === '#contact-section') {
+                e.preventDefault(); // Prevent default link behavior (scrolling)
+                openModal();
+                // Close mobile menu if it's open
+                if (isMobileMenuOpen) {
+                    isMobileMenuOpen = false;
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                    menuBtn.innerHTML = '<i data-lucide="menu"></i>';
+                    if (typeof lucide !== 'undefined') {
+                        lucide.createIcons();
+                    }
+                }
+            } else if (href !== '#') { // For other smooth scrolls
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             }
-        }
+        });
     });
 });

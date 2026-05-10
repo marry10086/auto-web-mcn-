@@ -6,8 +6,8 @@
     <title>联系我们 - 云域-Cloud Area</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons CDN -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Lucide Icons CDN (稳定版本) -->
+    <script src="https://unpkg.com/lucide@0.201.0/dist/umd/lucide.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-[#FAFAFA] font-sans text-slate-900 overflow-x-hidden selection:bg-emerald-500 selection:text-white">
@@ -43,7 +43,7 @@
                 <a href="index.html#platforms" class="text-slate-600 hover:text-emerald-600 transition-colors">代运营平台</a>
                 <a href="index.html#services" class="text-slate-600 hover:text-emerald-600 transition-colors">核心业务</a>
                 <a href="index.html#trust" class="text-slate-600 hover:text-emerald-600 transition-colors">实战数据</a>
-                <a href="contact.html" class="bg-slate-900 hover:bg-emerald-600 text-white px-7 py-2.5 rounded-full transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-slate-900/10 font-bold">
+                <a href="#contact-section" class="bg-slate-900 hover:bg-emerald-600 text-white px-7 py-2.5 rounded-full transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-slate-900/10 font-bold">
                     联系我们
                 </a>
             </div>
@@ -61,49 +61,51 @@
             <a href="index.html#platforms" class="text-slate-800 font-medium hover:text-emerald-600">代运营平台</a>
             <a href="index.html#services" class="text-slate-800 font-medium hover:text-emerald-600">核心业务</a>
             <a href="index.html#trust" class="text-slate-800 font-medium hover:text-emerald-600">实战数据</a>
-            <a href="contact.html" class="bg-emerald-600 text-white font-bold px-6 py-3 rounded-full w-full shadow-lg shadow-emerald-500/20">联系我们</a>
+            <a href="#contact-section" class="bg-emerald-600 text-white font-bold px-6 py-3 rounded-full w-full shadow-lg shadow-emerald-500/20 text-center">联系我们</a>
         </div>
     </nav>
 
-    <!-- 联系表单 Section -->
+    <!-- 🚀 即刻开启全球增长 🚀 -->
     <div class="relative z-10 pt-32 md:pt-48 pb-20">
-        
-        <!-- 联系 Hero Section -->
-        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-20 relative">
-            <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/80 backdrop-blur-md text-emerald-700 font-medium text-sm mb-10 border border-emerald-100/50 shadow-[0_4px_20px_-5px_rgba(16,185,129,0.15)]">
-                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.6)]"></span>
-                量身定制您的全球化增长方案
+        <section id="contact-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 mb-32">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center justify-center mb-4">
+                    <i data-lucide="message-square" class="w-6 h-6 text-emerald-600 mr-2"></i>
+                    <span class="text-emerald-600 font-bold tracking-widest uppercase text-sm">联系我们</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-black text-slate-900 mb-4">即刻开启全球增长</h2>
+                <div class="w-20 h-1.5 bg-emerald-500 mx-auto rounded-full"></div>
             </div>
-            <h1 class="text-5xl md:text-7xl font-black tracking-tight mb-8 leading-[1.1] text-slate-900">
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500">开启合作</span> <br class="hidden md:block" />
-                获取全域出海方案
-            </h1>
-            <p class="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-12 leading-relaxed">
-                请填写您的业务需求，我们的出海专家团队将在 24 小时内与您取得联系，为您提供深度市场分析与增长建议。
-            </p>
-        </section>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- 商务合作 1 -->
+                <div class="bg-white p-10 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-slate-100 flex flex-col items-center text-center transform transition-all hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(16,185,129,0.1)]">
+                    <div class="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="message-square" class="w-8 h-8 text-emerald-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-slate-900 mb-2">商务合作1</h3>
+                    <p class="text-slate-500 mb-8 font-medium">添加请备注品牌+类目</p>
+                    <div class="w-[200px] h-[200px] bg-slate-50 rounded-2xl p-4 flex items-center justify-center border border-slate-100 overflow-hidden">
+                        <img src="qr-shangwu.png" alt="商务合作1" class="w-full h-full object-contain mx-auto">
+                    </div>
+                </div>
 
-        <!-- 表单区域 -->
-        <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 -mb-48">
-            <div class="bg-white/90 backdrop-blur-2xl rounded-[3rem] p-3 md:p-8 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] border border-white overflow-hidden mx-auto">
-                <!-- 谷歌表单嵌入容器 -->
-                <div class="w-full flex justify-center rounded-[2rem] overflow-hidden bg-white">
-                    <iframe 
-                        src="https://docs.google.com/forms/d/e/1FAIpQLSeOsYyZLP7w1wIIySAVrALdUMQ4JBO_LjKgUDqnyWOCYhCiSA/viewform?embedded=true" 
-                        width="100%" 
-                        height="850" 
-                        frameborder="0" 
-                        marginheight="0" 
-                        marginwidth="0"
-                        scrolling="no"
-                        class="w-full"
-                    >正在加载…</iframe>
+                <!-- 商务合作 2 -->
+                <div class="bg-white p-10 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-slate-100 flex flex-col items-center text-center transform transition-all hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(16,185,129,0.1)]">
+                    <div class="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="users" class="w-8 h-8 text-emerald-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-slate-900 mb-2">商务合作2</h3>
+                    <p class="text-slate-500 mb-8 font-medium">添加请备注品牌+类目</p>
+                    <div class="w-[200px] h-[200px] bg-slate-50 rounded-2xl p-4 flex items-center justify-center border border-slate-100 overflow-hidden">
+                        <img src="qr-kefu.png" alt="商务合作2" class="w-full h-full object-contain mx-auto">
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- 页脚 -->
-        <footer class="bg-slate-900 text-slate-400 pt-72 pb-16 relative z-10">
+        <footer class="bg-slate-900 text-slate-400 pt-32 pb-16 relative z-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-8">
                 <div class="col-span-1 md:col-span-2">
                     <div class="flex items-center gap-2 mb-6">
@@ -117,10 +119,10 @@
                 <div>
                     <h4 class="text-white font-bold mb-6 text-lg">核心出海业务</h4>
                     <ul class="space-y-3 text-base font-light">
-                        <li><a href="index.html#services" class="hover:text-emerald-400 transition-colors">亚马逊精细化代运营</a></li>
-                        <li><a href="index.html#services" class="hover:text-emerald-400 transition-colors">TikTok Shop 闭环与直播</a></li>
-                        <li><a href="index.html#services" class="hover:text-emerald-400 transition-colors">海外 KOL 种草与分销</a></li>
-                        <li><a href="index.html#services" class="hover:text-emerald-400 transition-colors">独立站与品牌视觉包装</a></li>
+                        <li><a href="#contact-section" class="hover:text-emerald-400 transition-colors">亚马逊精细化代运营</a></li>
+                        <li><a href="#contact-section" class="hover:text-emerald-400 transition-colors">TikTok Shop 闭环与直播</a></li>
+                        <li><a href="#contact-section" class="hover:text-emerald-400 transition-colors">海外 KOL 种草与分销</a></li>
+                        <li><a href="#contact-section" class="hover:text-emerald-400 transition-colors">独立站与品牌视觉包装</a></li>
                     </ul>
                 </div>
                 <div>
@@ -191,7 +193,21 @@
                 });
             });
 
-            // 表单提交逻辑已由谷歌表单 iframe 处理
+            // 3. 平滑滚动增强
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#') {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
         });
     </script>
 </body>
