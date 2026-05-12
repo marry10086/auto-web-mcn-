@@ -127,4 +127,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Ensure all Lucide icons are created after DOM is fully loaded and interactive
+    try {
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    } catch (error) {
+        console.error('Lucide icons re-initialization failed:', error);
+    }
 });
